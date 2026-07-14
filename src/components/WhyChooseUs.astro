@@ -1,0 +1,139 @@
+---
+const reasons = [
+  {
+    title: "Data-led strategy",
+    body: "Every campaign starts from your existing funnel data, not a template deck. We find where the leaks are before we spend a rupee on media.",
+    icon: "chart",
+  },
+  {
+    title: "One dedicated pod",
+    body: "A strategist, a media buyer, and a writer who know your account cold — not a rotating cast pulled from a shared resource pool.",
+    icon: "people",
+  },
+  {
+    title: "Reporting you can read",
+    body: "One dashboard, one line, updated weekly. No 40-slide decks, no metrics invented to make a flat month look busy.",
+    icon: "line",
+  },
+  {
+    title: "Full-funnel execution",
+    body: "Paid, organic, content and lifecycle email working off the same calendar and the same targets, not five agencies pointing fingers.",
+    icon: "funnel",
+  },
+  {
+    title: "Fast to launch",
+    body: "Median 18 days from kickoff to first live campaign, because most of our tooling and playbooks are already built.",
+    icon: "bolt",
+  },
+  {
+    title: "Creative that converts",
+    body: "In-house writers and designers test messaging against real response data, not internal opinion or client preference alone.",
+    icon: "spark",
+  },
+];
+
+const icons: Record<string, string> = {
+  chart: `<path d="M4 20V10M11 20V4M18 20V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>`,
+  people: `<circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5M14.5 20c0-2.6 1.8-4.6 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>`,
+  line: `<path d="M3 16l5-6 4 3 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="4" r="1.6" fill="currentColor"/>`,
+  funnel: `<path d="M3 4h18l-7 9v6l-4 2v-8L3 4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>`,
+  bolt: `<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>`,
+  spark: `<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>`,
+};
+---
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-head">
+      <p class="eyebrow">Why teams choose Northline</p>
+      <h2>Fewer meetings. Fewer decks. A line that actually moves.</h2>
+    </div>
+
+    <div class="why-grid">
+      {reasons.map((r) => (
+        <article class="why-card">
+          <span class="why-icon" set:html={`<svg viewBox="0 0 24 24" fill="none">${icons[r.icon]}</svg>`} />
+          <h3>{r.title}</h3>
+          <p>{r.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+  }
+
+  .why-head {
+    max-width: 44ch;
+    margin-bottom: clamp(2.2rem, 5vw, 3.2rem);
+  }
+
+  .why-head .eyebrow {
+    color: var(--lime);
+    margin-bottom: 0.9rem;
+  }
+
+  .why-head h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    color: var(--text-on-ink);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .why-card {
+    background: var(--ink);
+    padding: 2rem 1.9rem;
+    transition: background 0.2s ease;
+  }
+
+  .why-card:hover {
+    background: var(--ink-soft);
+  }
+
+  .why-icon {
+    display: inline-flex;
+    width: 26px;
+    height: 26px;
+    color: var(--lime);
+    margin-bottom: 1.3rem;
+  }
+
+  .why-card h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.12rem;
+    color: var(--text-on-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .why-card p {
+    font-size: 0.92rem;
+    color: var(--text-on-ink-dim);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 900px) {
+    .why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

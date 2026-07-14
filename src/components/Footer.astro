@@ -1,0 +1,293 @@
+---
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    title: "Services",
+    links: ["Paid media", "SEO & content", "Lifecycle email", "Analytics & reporting"],
+  },
+  {
+    title: "Studio",
+    links: ["About", "Why Northline", "Careers", "Case studies"],
+  },
+];
+---
+
+<footer class="footer" id="contact">
+  <div class="wrap footer-top">
+    <div class="footer-cta">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Tell us the line you want to see move.</h2>
+      <p class="footer-lede">
+        Book a 30-minute strategy call. We'll look at your current funnel
+        and tell you honestly whether we're a fit — no deck required.
+      </p>
+      <a href="mailto:hello@northline.agency" class="btn-primary">
+        hello@northline.agency
+      </a>
+    </div>
+
+    <form class="newsletter" onsubmit="event.preventDefault()">
+      <p class="eyebrow">Monthly notes on growth</p>
+      <p class="newsletter-copy">One short email a month — a real campaign result, and the number behind it.</p>
+      <div class="newsletter-row">
+        <label for="email" class="sr-only">Email address</label>
+        <input id="email" type="email" placeholder="you@company.com" required />
+        <button type="submit">Subscribe</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path d="M3 21L10 12L15.5 17L25 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="25" cy="6" r="2.4" fill="currentColor"/>
+          </svg>
+        </span>
+        Northline
+      </a>
+      <p>Digital marketing for growth-stage brands. Delhi, remote-friendly.</p>
+      <div class="socials">
+        <a href="#" aria-label="Northline on Instagram">Instagram</a>
+        <a href="#" aria-label="Northline on LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Northline on X">X</a>
+      </div>
+    </div>
+
+    {columns.map((col) => (
+      <div class="footer-col">
+        <p class="footer-col-title">{col.title}</p>
+        <ul>
+          {col.links.map((l) => (
+            <li><a href="#">{l}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© {year} Northline Digital. All rights reserved.</p>
+    <div class="legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--ink-soft);
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    padding-block: clamp(3rem, 7vw, 5.5rem);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-cta .eyebrow,
+  .newsletter .eyebrow {
+    color: var(--lime);
+    margin-bottom: 0.9rem;
+  }
+
+  .footer-cta h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    max-width: 18ch;
+  }
+
+  .footer-lede {
+    margin-top: 1.1rem;
+    color: var(--text-on-ink-dim);
+    max-width: 42ch;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    margin-top: 1.6rem;
+    background: var(--lime);
+    color: var(--ink);
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .newsletter {
+    align-self: start;
+    justify-self: end;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .newsletter-copy {
+    color: var(--text-on-ink-dim);
+    font-size: 0.92rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .newsletter-row {
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem;
+  }
+
+  .newsletter-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0.6rem 0.9rem;
+    color: var(--text-on-ink);
+    font-size: 0.9rem;
+  }
+
+  .newsletter-row input::placeholder {
+    color: var(--text-on-ink-dim);
+  }
+
+  .newsletter-row input:focus {
+    outline: none;
+  }
+
+  .newsletter-row button {
+    background: var(--coral);
+    color: var(--ink);
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.15rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2rem;
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-on-ink);
+  }
+
+  .logo-mark {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    color: var(--lime);
+  }
+
+  .footer-brand p {
+    margin-top: 1rem;
+    color: var(--text-on-ink-dim);
+    font-size: 0.9rem;
+    max-width: 32ch;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 1.3rem;
+    font-size: 0.86rem;
+  }
+
+  .socials a {
+    color: var(--text-on-ink-dim);
+  }
+
+  .socials a:hover {
+    color: var(--lime);
+  }
+
+  .footer-col-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-on-ink-dim);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-col a {
+    color: var(--text-on-ink-dim);
+    font-size: 0.92rem;
+  }
+
+  .footer-col a:hover {
+    color: var(--text-on-ink);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.4rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--text-on-ink-dim);
+  }
+
+  .legal {
+    display: flex;
+    gap: 1.3rem;
+  }
+
+  @media (max-width: 860px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+    }
+    .newsletter {
+      justify-self: start;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 0.6rem;
+      text-align: center;
+    }
+  }
+</style>

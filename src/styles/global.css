@@ -1,0 +1,89 @@
+/* ============================================================
+   NORTHLINE — Design tokens
+   Palette: deep pine ink base, warm khaki paper for contrast
+   sections, signal-lime for "growth", coral for action/CTA.
+   Type: Fraunces (display, characterful serif) + Inter (body)
+   + Space Mono (data / ticker / labels).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* colors */
+  --ink: #0f201c;
+  --ink-soft: #16302a;
+  --paper: #ece7d8;
+  --paper-soft: #f5f2e7;
+  --text-on-ink: #eef2ec;
+  --text-on-ink-dim: #a9bdb3;
+  --text-on-paper: #14201b;
+  --text-on-paper-dim: #566158;
+  --lime: #c6f24e;
+  --coral: #ff5a45;
+  --line: rgba(238, 242, 236, 0.14);
+  --line-on-paper: rgba(20, 32, 27, 0.12);
+
+  /* type */
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* layout */
+  --max-w: 1180px;
+  --edge: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--text-on-ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--edge);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

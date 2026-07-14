@@ -1,0 +1,204 @@
+---
+const navLinks = [
+  { label: "Services", href: "#why" },
+  { label: "About", href: "#about" },
+  { label: "Why Northline", href: "#why" },
+];
+
+const ticks = [
+  "+142% organic traffic — Aarav Foods",
+  "3.2× ROAS — Verve Skincare",
+  "−38% CAC — Loop Fitness",
+  "+91K email subs in 6mo — Kaveri Home",
+  "4.6× pipeline growth — Bramble SaaS",
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="#top" class="logo" aria-label="Northline home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 28 28" fill="none">
+          <path d="M3 21L10 12L15.5 17L25 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="6" r="2.4" fill="currentColor"/>
+        </svg>
+      </span>
+      Northline
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {navLinks.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="#contact" class="cta">Book a strategy call</a>
+
+    <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" id="menuBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    {navLinks.map((l) => (
+      <a href={l.href}>{l.label}</a>
+    ))}
+    <a href="#contact" class="cta-mobile">Book a strategy call</a>
+  </nav>
+
+  <div class="ticker" role="marquee" aria-label="Recent client results">
+    <div class="ticker-track">
+      {[...ticks, ...ticks].map((t) => (
+        <span class="ticker-item">{t}</span>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menuBtn");
+  const nav = document.getElementById("mobileNav");
+  btn?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(!!open));
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 1.15rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    color: var(--text-on-ink);
+    margin-right: auto;
+  }
+
+  .logo-mark {
+    display: inline-flex;
+    width: 26px;
+    height: 26px;
+    color: var(--lime);
+  }
+
+  .nav {
+    display: flex;
+    gap: 1.9rem;
+    font-size: 0.94rem;
+  }
+
+  .nav a {
+    color: var(--text-on-ink-dim);
+    transition: color 0.15s ease;
+  }
+
+  .nav a:hover,
+  .nav a:focus-visible {
+    color: var(--text-on-ink);
+  }
+
+  .cta {
+    border: 1px solid var(--text-on-ink);
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    background: var(--lime);
+    border-color: var(--lime);
+    color: var(--ink);
+  }
+
+  .menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0.4rem;
+  }
+
+  .menu-btn span {
+    width: 22px;
+    height: 2px;
+    background: var(--text-on-ink);
+    display: block;
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: var(--ink-soft);
+  }
+
+  .mobile-nav.open {
+    display: flex;
+  }
+
+  .mobile-nav a {
+    padding: 0.9rem var(--edge);
+    border-top: 1px solid var(--line);
+    color: var(--text-on-ink-dim);
+  }
+
+  .cta-mobile {
+    color: var(--lime) !important;
+    font-weight: 600;
+  }
+
+  /* ticker */
+  .ticker {
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background: var(--ink-soft);
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 32s linear infinite;
+  }
+
+  .ticker-item {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--lime);
+    padding: 0.5rem 2.25rem;
+    white-space: nowrap;
+    border-right: 1px solid var(--line);
+  }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 860px) {
+    .nav, .cta { display: none; }
+    .menu-btn { display: flex; }
+  }
+</style>

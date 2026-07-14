@@ -1,0 +1,131 @@
+---
+const ledger = [
+  { label: "Founded", value: "2018" },
+  { label: "Team", value: "24 strategists, writers & analysts" },
+  { label: "Active accounts", value: "31" },
+  { label: "Based in", value: "Delhi, remote-friendly" },
+];
+---
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <p class="eyebrow">About Northline</p>
+      <h2>We started as a two-person media buying desk that got tired of reports nobody read.</h2>
+      <p>
+        Northline was built on a simple complaint: most marketing reporting
+        is written to impress, not to inform. So we rebuilt ours around one
+        number your business already tracks — traffic, qualified leads, or
+        revenue — and we plot it every week, in public, inside your own
+        dashboard.
+      </p>
+      <p>
+        Today we run full-funnel campaigns for growth-stage brands across
+        food, fitness, skincare and SaaS: strategy, paid media, content,
+        lifecycle email, and the analytics wiring that ties it all back to
+        the one line that matters to you.
+      </p>
+      <a href="#why" class="about-link">Why teams switch to us →</a>
+    </div>
+
+    <dl class="ledger">
+      <p class="ledger-title">The short version</p>
+      {ledger.map((row) => (
+        <div class="ledger-row">
+          <dt>{row.label}</dt>
+          <dd>{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--paper);
+    color: var(--text-on-paper);
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .about .eyebrow {
+    color: var(--text-on-paper-dim);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    max-width: 24ch;
+  }
+
+  .about-copy p {
+    margin-top: 1.25rem;
+    color: var(--text-on-paper-dim);
+    max-width: 56ch;
+    font-size: 1rem;
+  }
+
+  .about-link {
+    display: inline-block;
+    margin-top: 1.6rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--coral);
+    padding-bottom: 0.15rem;
+  }
+
+  .ledger {
+    border: 1px solid var(--line-on-paper);
+    border-radius: 4px;
+    background: var(--paper-soft);
+    padding: 1.6rem 1.7rem;
+  }
+
+  .ledger-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-on-paper-dim);
+    margin-bottom: 1rem;
+  }
+
+  .ledger-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.85rem;
+    border-top: 1px solid var(--line-on-paper);
+  }
+
+  .ledger-row:last-child {
+    padding-bottom: 0;
+  }
+
+  .ledger-row dt {
+    color: var(--text-on-paper-dim);
+    font-size: 0.88rem;
+  }
+
+  .ledger-row dd {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    text-align: right;
+    max-width: 18ch;
+  }
+
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
